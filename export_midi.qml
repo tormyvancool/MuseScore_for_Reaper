@@ -38,7 +38,7 @@ MuseScore {
             exportMidiForReaper.thumbnailName = "export_midi.png";
             exportMidiForReaper.categoryCode = "composing-arranging-tools";
         } else {
-			errorDialog.text = qsTr("MU  Version not compatible");
+			errorDialog.text = qsTr("MuseScore Version not compatible");
 			errorDialog.open();
 		}
     }
