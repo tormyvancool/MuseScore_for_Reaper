@@ -21,7 +21,7 @@
 
 import QtQuick 2.2
 import QtQuick.Dialogs 1.1
-import FileIO 3.0
+//import FileIO 3.0 // not required by this plugin
 import MuseScore 3.0
 
 MuseScore {
@@ -37,9 +37,9 @@ MuseScore {
             exportMidiForReaper.title = "MIDI Exporter";
             exportMidiForReaper.thumbnailName = "export_midi.png";
             exportMidiForReaper.categoryCode = "composing-arranging-tools";
-        } else {
-			errorDialog.text = qsTr("MuseScore Version not compatible");
-			errorDialog.open();
+//        } else { // letting it work with MU3.6
+//			errorDialog.text = qsTr("MuseScore Version not compatible");
+//			errorDialog.open();
 		}
     }
 	
@@ -48,7 +48,7 @@ MuseScore {
         title:  qsTr("DONE")
         text: ""
         onAccepted: {
-            quit()
+            //quit() // not supported by MU3.6
         }
         visible: false
     }
@@ -58,22 +58,22 @@ MuseScore {
         title:  ""
         text: ""
         onAccepted: {
-            quit()
+            //quit() // not supported by MU3.6
         }
         visible: false
     }
 
     onRun: {
         console.log("hello MIDI Exporter");
-		curScore.startCmd();
+//		curScore.startCmd();  // not required for writeScore
 		var s = curScore;		
-		var p = curScore.path;
+		var p = curScore.path; 
 		//p = p.slice(0, -5);
 		//p = p.replace(/\//gi,"\\");
 		//writeScore(s, p, 'mid');
-		doneDialog.text = qsTr("MIDI file saved");
+		doneDialog.text = qsTr("MIDI file saved as")+" "+p+".mid";
         doneDialog.open();
-		curScore.endCmd()
-		quit()
+//		curScore.endCmd() // not required for writeScore
+//		quit() // not supported by MU3.6
     }
 }
