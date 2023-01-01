@@ -33,16 +33,29 @@ MuseScore {
     height: 124	
 
     Component.onCompleted: {
-        if (mscoreMajorVersion >= 4) {
+        if (mscoreMajorVersion >= 5) {
             exportMidiForReaper.title = "MIDI Exporter";
             exportMidiForReaper.thumbnailName = "export_midi.png";
             exportMidiForReaper.categoryCode = "composing-arranging-tools";
-        }
+        } else {
+			errorDialog.text = qsTr("MU  Version not compatible");
+			errorDialog.open();
+		}
     }
 	
     MessageDialog {
         id: doneDialog
-        title: "DONE"
+        title:  qsTr("DONE")
+        text: ""
+        onAccepted: {
+            quit()
+        }
+        visible: false
+    }
+	
+    MessageDialog {
+        id: errorDialog
+        title:  ""
         text: ""
         onAccepted: {
             quit()
