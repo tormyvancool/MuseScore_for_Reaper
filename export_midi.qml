@@ -28,13 +28,18 @@ MuseScore {
 	id: exportMidiForReaper
     version:  "2.0"
     description: qsTr("Export MIDI for REAPER")
-    title: "MIDI Exporter"
-    categoryCode: "composing-arranging-tools"
-    thumbnailName: "export_midi.png"
 	
     width: 600
     height: 124	
 
+    Component.onCompleted: {
+        if (mscoreMajorVersion >= 4) {
+            exportMidiForReaper.title = "MIDI Exporter";
+            exportMidiForReaper.thumbnailName = "export_midi.png";
+            exportMidiForReaper.categoryCode = "composing-arranging-tools";
+        }
+    }
+	
     MessageDialog {
         id: doneDialog
         title: "DONE"
