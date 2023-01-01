@@ -33,7 +33,7 @@ MuseScore {
     height: 124	
 
     Component.onCompleted: {
-        if (mscoreMajorVersion >= 5) {
+        if (mscoreMajorVersion >= 4) {
             exportMidiForReaper.title = "MIDI Exporter";
             exportMidiForReaper.thumbnailName = "export_midi.png";
             exportMidiForReaper.categoryCode = "composing-arranging-tools";
