@@ -48,6 +48,7 @@ MuseScore {
         title:  qsTr("DONE")
         text: ""
         onAccepted: {
+	    doneDialog.close();
             //quit() // not supported by MU3.6
         }
         visible: false
@@ -58,6 +59,7 @@ MuseScore {
         title:  ""
         text: ""
         onAccepted: {
+	    errorDialog.close();
             //quit() // not supported by MU3.6
         }
         visible: false
